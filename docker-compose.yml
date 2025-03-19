@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  auth-db:
+    image: mongo:latest
+    container_name: auth-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - auth_data:/data/db
+    networks:
+      - app-network
+
+  tasks-db:
+    image: mongo:latest
+    container_name: tasks-db
+    ports:
+      - "27018:27017"
+    volumes:
+      - tasks_data:/data/db
+    networks:
+      - app-network
+
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - MONGO_URI_AUTH=mongodb://auth-db:27017/auth
+      - MONGO_URI_TASKS=mongodb://tasks-db:27017/tasks
+      - JWT_SECRET=secret-key
+    depends_on:
+      - auth-db
+      - tasks-db
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_AUTH_API_URL=http://backend:3001/auth
+      - VITE_TASKS_API_URL=http://backend:3001/tasks
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  auth_data:
+  tasks_data:
