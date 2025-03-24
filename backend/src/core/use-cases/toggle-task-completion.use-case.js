@@ -5,7 +5,7 @@ class ToggleTaskCompletionUseCase {
 
   async execute(id, userId, completed) {
     const existingTask = await this.taskRepository.getTaskById(id);
-    if (!existingTask || existingTask.userId !== userId) {
+    if (!existingTask || existingTask.userId.toString() !== userId.toString()) {
       throw new Error('Task not found or unauthorized');
     }
     existingTask.completed = completed;

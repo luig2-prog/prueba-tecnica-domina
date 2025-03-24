@@ -47,7 +47,7 @@ export const useTask = () => {
     try {
       const token = localStorage.getItem('token');
       const updatedTask = await taskService.toggleTaskCompletion(id, completed, token);
-      setTasks(tasks.map((task) => (task._id === id ? updatedTask : task)));
+      setTasks(tasks.map((task) => (task.id === id ? updatedTask : task)));
     } catch (err) {
       setError(err.message || 'Error al actualizar el estado de la tarea');
     }
