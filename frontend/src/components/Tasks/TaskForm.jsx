@@ -12,7 +12,11 @@ function TaskForm() {
 
   useEffect(() => {
     if (id) {
-      const task = tasks.find((task) => task._id === id);
+      const task = tasks.find((task) => {
+        console.log("🚀 ~ useEffect ~ task 1:", task)
+        return task.id === id
+      })
+      console.log("🚀 ~ useEffect ~ task: 2", task)
       if (task) {
         setTitle(task.title);
         setDescription(task.description);
