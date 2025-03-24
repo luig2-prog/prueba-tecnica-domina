@@ -72,12 +72,12 @@ function Register() {
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0 md:space-x-2">
           <button
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline"
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline cursor-pointer"
             type="submit"
           >
             Registrar
           </button>
-          <a className="inline-block align-baseline font-semibold text-sm text-blue-500 hover:text-blue-800" href="/login">
+          <a className="inline-block align-baseline font-semibold text-sm text-blue-500 hover:text-blue-800 cursor-pointer" href="/login">
             ¿Ya tienes cuenta? Inicia Sesión
           </a>
         </div>

@@ -68,13 +68,13 @@ function TaskForm() {
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0 md:space-x-2">
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded focus:outline-none focus:shadow-outline cursor-pointer"
             type="submit"
           >
             {id ? 'Guardar Cambios' : 'Crear Tarea'}
           </button>
           <button
-            className="inline-block align-baseline font-semibold text-sm text-gray-500 hover:text-gray-800"
+            className="inline-block align-baseline font-semibold text-sm text-gray-500 hover:text-gray-800 cursor-pointer"
             onClick={() => navigate('/')}
           >
             Cancelar

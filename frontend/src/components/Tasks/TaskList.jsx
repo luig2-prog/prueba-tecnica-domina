@@ -36,7 +36,7 @@ function TaskList() {
       {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
       <div className="mb-6 text-center">
         <button
-          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline"
+          className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline cursor-pointer"
           onClick={() => navigate('/tasks/add')}
         >
           Agregar Nueva Tarea
@@ -54,19 +54,19 @@ function TaskList() {
               </div>
               <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
                 <button
-                  className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
                   onClick={() => handleEdit(task.id)}
                 >
                   Editar
                 </button>
                 <button
-                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer"
                   onClick={() => handleDelete(task.id)}
                 >
                   Eliminar
                 </button>
                 <button
-                  className={`ml-2 ${task.completed ? 'bg-gray-500' : 'bg-blue-500'} hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline`}
+                  className={`ml-2 ${task.completed ? 'bg-gray-500' : 'bg-blue-500'} hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline cursor-pointer`}
                   onClick={() => handleToggleCompletion(task.id, task.completed)}
                 >
                   {task.completed ? 'Marcar como Incompleta' : 'Marcar como Completa'}
