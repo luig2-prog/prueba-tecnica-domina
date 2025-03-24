@@ -46,3 +46,6 @@ To stop and remove the containers, run:
 ```bash
 docker-compose down
 ```
+
+
+![alt text](/imgs/image.png)
