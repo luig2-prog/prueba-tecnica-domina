@@ -13,8 +13,9 @@ function TaskList() {
   const handleDelete = async (id) => {
     if (window.confirm('¿Estás seguro de que deseas eliminar esta tarea?')) {
       try {
-        await taskService.deleteTask(id);
-        setTasks(tasks.filter((task) => task._id !== id));
+        const token = localStorage.getItem('token');
+        await taskService.deleteTask(id, token);
+        setTasks(tasks.filter((task) => task.id !== id));
       } catch (err) {
         setError(err.message || 'Error al eliminar la tarea');
       }

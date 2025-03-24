@@ -7,7 +7,6 @@ const authHeader = (token) => ({
 });
 
 const getAllTasks = async (token) => {
-  console.log("🚀 ~ getAllTasks ~ token:", token)
   try {
     const response = await axios.get(API_URL, authHeader(token));
     return response.data;
@@ -44,6 +43,8 @@ const updateTask = async (id, taskData, token) => {
 };
 
 const deleteTask = async (id, token) => {
+  console.log("🚀 ~ deleteTask ~ id:", id)
+  console.log("🚀 ~ deleteTask ~ token:", token)
   try {
     await axios.delete(`${API_URL}/${id}`, authHeader(token));
   } catch (error) {
